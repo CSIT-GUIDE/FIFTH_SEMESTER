@@ -1,0 +1,3 @@
+pal([]).
+pal([_]).
+pal(Pal):- app([H|T], [H], Pal),pal(T).

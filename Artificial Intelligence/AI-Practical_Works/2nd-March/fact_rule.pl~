@@ -1,0 +1,4 @@
+p([H|T],H,T).%fact
+p([a,b,c],X,Y).%goal
+p([a],X,Y).
+p([],X,Y).

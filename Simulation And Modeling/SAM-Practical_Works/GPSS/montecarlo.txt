@@ -1,0 +1,17 @@
+There is one line of code in GPSS for each individual block.
+
+The GENERATE block will generate random transactions (cars) according to a uniform distribution. The 100 and 20 on code line 100, specifies that the time between cars arriving will be on average 100 time units plus or minus 20 time units. Thus 20 is the half-width of the distribution.
+
+The QUEUE block instructs GPSS to start gathering statistics on a queue named ‘Garage’.
+
+The SEIZE block allows the first car to seize a facility named ‘Pump’.
+
+The DEPART block informs GPSS that a car is leaving the queue named ‘Garage’. Whilst a car is being serviced in the ADVANCE block, any other arriving transaction (car) will remain in the QUEUE block.
+
+The ADVANCE block represents the car being filled with petrol. The values 100 and 5 specify that the time taken to fill a car with petrol is on average 100 time units plus or minus 5 time units. When a car leaves the ADVANCE block it moves into the RELEASE block which releases the ‘Pump’ and allows the next car at the QUEUE block to SEIZE the ‘Pump.’ The SEIZE and RELEASE blocks also instruct GPSS to gather statistics on a facility named ‘Pump.’
+
+Finally, the TERMINATE block destroys the transaction as it leaves the RELEASE block and decrements a counter by 1.
+
+This simulation is run by entering the command ‘START 500’. The counter is set to this value, so that when 500 transactions have entered the TERMINATE block, the simulation will stop. It is then possible to obtain operating statistics about the queue and the petrol pump facility from GPSS.
+
+The statistics obtained from this simulation model along with those from alternative designs will aid the decision-maker in deciding what is the best system to employ for the garage.

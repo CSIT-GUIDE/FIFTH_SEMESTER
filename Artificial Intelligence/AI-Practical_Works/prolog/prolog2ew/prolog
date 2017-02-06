@@ -1,0 +1,47 @@
+gcd(X, Y, G) :- X = Y, G = X. 
+gcd(X, Y, G) :- 
+  X < Y, 
+  Y1 is Y – X, 
+  gcd(X, Y1, G). 
+gcd(X, Y, G) :- X > Y, gcd(Y, X, G). 
+
+Input:    gcd(10,5,G).
+
+Output:  G = 5
+
+Find the LCM of the two number X and Y.
+
+gcd(X, Y, G) :- X = Y, G = X. 
+gcd(X, Y, G) :- 
+  X < Y, 
+  Y1 is Y – X, 
+  gcd(X, Y1, G). 
+gcd(X, Y, G) :- X > Y, gcd(Y, X, G).
+
+lcm(X,Y,LCM):-gcd(X,Y,GCD), LCM is X*Y//GCD. 
+
+
+
+--------------------------------------------
+
+Your solution explained: If we reverse the empty list, we obtain the empty list. If we reverse the list [H|T] , we end up with the list obtained by reversing T and concatenating with [H] . To see that the recursive clause is correct, consider the list [a,b,c,d] . If we reverse the tail of this list we obtain [d,c,b] . Concatenating this with [a] yields [d,c,b,a] , which is the reverse of [a,b,c,d]
+
+Another reverse solution:
+
+ reverse([],Z,Z).
+
+ reverse([H|T],Z,Acc) :- reverse(T,Z,[H|Acc]).
+call:
+
+?- reverse([a,b,c],X,[]).
+
+
+-------------------------------------------
+
+
+pal([]).
+pal([_]).
+pal(Pal) :-
+    append([H|T], [H], Pal),
+    pal(T).
+

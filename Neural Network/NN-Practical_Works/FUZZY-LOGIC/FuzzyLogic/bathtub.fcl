@@ -1,0 +1,42 @@
+FUNCTION_BLOCK TemperatureControl	// Block definition
+
+VAR_INPUT							// Define input variables
+	temp:	REAL;
+END_VAR
+
+VAR_OUTPUT							// Define output variables
+	hot_valve:	REAL;
+	cold_valve:	REAL;
+END_VAR
+
+FUZZIFY temp						// Fuzzify input variable 'temp': {'hot', 'cold'}
+	TERM hot	:=	(35,0)(90,1);
+	TERM cold	:=	(1,1)(20,1)(50,0);
+END_FUZZIFY
+
+DEFUZZIFY hot_valve					// Defuzzify output variable 'hot_valve' : {'open', 'closed'}
+	TERM open	:=	100;
+	TERM closed	:=	0;
+	METHOD : COGS;
+	DEFAULT		:= 0;	
+END_DEFUZZIFY
+
+DEFUZZIFY cold_valve				// Defzzzify output variable 'cold_valve' : {'open', 'closed'}
+	TERM open	:=	100;
+	TERM closed	:=	0;
+	METHOD : COGS;					// Use 'Center Of Gravity' defuzzification method
+	DEFAULT		:= 0;				// Default value is 0 (if no rule activates defuzzifier)
+END_DEFUZZIFY
+
+RULEBLOCK Control
+	AND : MIN;						// Use 'min' for 'and' to Fulfill DeMorgan's law
+	ACT : MIN;						// Use 'min' activation method
+	ACCU : MAX;						// Use 'max' accumulation method
+
+	//Define the rules to be used
+	RULE 1:	IF temp IS cold THEN hot_valve IS open;
+	RULE 2: IF temp IS hot THEN cold_valve IS open;
+END_RULEBLOCK
+
+
+END_FUNCTION_BLOCK

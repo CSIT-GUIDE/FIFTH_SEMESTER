@@ -1,0 +1,12 @@
+import matplotlib.pyplot as plt
+import math
+x = [1,3,4,5,1,5,1,5,4,-9,4,-45,48,-123,-1,-15,-78]
+y = []
+for i in x:
+	val = (1-i**2)exp(-(1/2)*(i**2)
+	y.append(val)
+plt.plot(x)
+plt.ylabel('Y')
+plt.plot(y)
+plt.xlabel('X')
+plt.show()

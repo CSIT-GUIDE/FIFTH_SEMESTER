@@ -1,0 +1,97 @@
+body{
+	padding: 0;
+	margin: 0;
+	font-family: Helvetica,Arial;
+	font-size: 15px;
+	
+	background-color:#eee;
+}
+.title{
+    height: 86px;
+	padding: 15px 20px;
+	margin:0 auto;
+    display: block;
+	box-sizing: border-box;
+	text-align: center;
+	font-size: 40px;
+	color:#fff;
+	background-color: #0084b4;
+}
+.error{
+    padding-top: 5px;
+	margin:0 auto;
+    display: block;
+	color:#e54c19;
+	box-sizing: border-box;
+	text-align: center;
+}
+.error p{
+	margin: 0 0 5px;
+}
+
+.form-login input{
+
+	border-radius: 0;
+	width: 40px;
+	margin: 0 9px 15px 8px;
+}
+.form-login input[type="password"]
+{
+    margin-bottom: 20px;
+}
+.wrapper{
+	margin:0 auto;	
+	padding: 0 20px;
+}
+.container{
+	height: auto;
+	padding: 5px;
+	margin-top: 160px;
+	background-color: #99cce5;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.form-login{
+	max-width:330px;
+	padding: 15px;
+	margin:0 auto;
+}
+.form-login .form-control{
+	position: relative;	
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    box-sizing: border-box;	    
+}
+.checkbox{
+	color: #197f99;
+}
+.need-help{
+position: relative;
+display: block;
+min-height: 20px;
+margin-top: 10px;
+color: #196699;
+}
+.footer-block{
+	margin-top: 15px;
+}
+
+.label{
+	color: #31708f;
+}
+.training{
+	font-size: 20px;
+}
+.weight{
+	padding-top: 20px;
+}
+.post-execution{
+	margin-right: 30px;
+}
+.iterate, .final-w0, .final-w1{
+	padding-left: 15px;
+}
+.right-box{
+	margin-top: -160px;
+	margin-right: 20px;
+}
